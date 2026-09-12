@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Japheth Canales — Datos y Automatización</title>
+<meta name="description" content="Portafolio de Japheth Canales, practicante de Datos y Automatización en Lima, Perú. Power BI, Python, SQL, n8n." />
+<meta property="og:title" content="Japheth Canales — Datos y Automatización" />
+<meta property="og:description" content="Convierto datos en información útil y automatizo procesos." />
+<meta property="og:image" content="assets/japheth.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:oklch(0.975 0.008 85); --ink:oklch(0.24 0.012 60); --muted:oklch(0.52 0.015 60);
+    --soft:oklch(0.42 0.014 60); --line:oklch(0.89 0.01 80); --card:oklch(0.995 0.004 85);
+    --terra:oklch(0.58 0.14 40); --teal:oklch(0.58 0.14 195);
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:oklch(0.50 0.13 40);text-decoration:none}
+  a:hover{color:oklch(0.38 0.11 40);text-decoration:underline}
+  ::selection{background:oklch(0.58 0.14 195 / .25)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px 96px}
+  header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:14px 0;background:oklch(0.975 0.008 85 / .88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header nav{display:flex;gap:18px;flex-wrap:wrap;flex:1;min-width:0;font-size:14px}
+  header nav a{color:var(--muted)}
+  .mark{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--ink)}
+  .langbox{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .langbox button{border:0;padding:6px 11px;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.08em;background:transparent;color:var(--muted)}
+  .langbox button[aria-pressed="true"]{background:var(--ink);color:oklch(0.98 0.006 85)}
+  .btn-dark{padding:8px 14px;border-radius:999px;background:var(--ink);color:oklch(0.98 0.006 85);font-size:13px;font-weight:500}
+  .btn-dark:hover{background:oklch(0.34 0.03 45);color:oklch(0.98 0.006 85);text-decoration:none}
+  .btn-accent{padding:12px 22px;border-radius:999px;background:var(--terra);color:oklch(0.99 0.005 85);font-size:14px;font-weight:500}
+  .btn-accent:hover{background:oklch(0.50 0.13 40);color:oklch(0.99 0.005 85);text-decoration:none}
+  .btn-ghost{padding:12px 22px;border-radius:999px;border:1px solid oklch(0.82 0.012 70);color:var(--ink);font-size:14px;font-weight:500}
+  .btn-ghost:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
+  section{border-bottom:1px solid var(--line)}
+  .row{display:flex;flex-wrap:wrap}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
+  h1{margin:0;font-size:clamp(42px,6.5vw,76px);line-height:.98;letter-spacing:-.035em;font-weight:600}
+  h2.big{margin:0;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.03em;font-weight:600}
+  .tag{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:3px;background:oklch(0.93 0.012 80);color:oklch(0.40 0.014 60)}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 15px;border-radius:999px;cursor:pointer;border:1px solid oklch(0.85 0.012 75);background:transparent;color:oklch(0.45 0.014 60)}
+  .chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:oklch(0.98 0.006 85)}
+  .grid-projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .grid-projects article{background:var(--card);padding:28px 26px 26px;display:flex;flex-direction:column;gap:12px}
+  .grid-projects article:hover{background:#fff}
+  .p-meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .p-meta .cat{color:var(--teal)} .p-meta .yr{color:oklch(0.62 0.012 60)}
+  .grid-projects h3{margin:0;font-size:19px;line-height:1.3;letter-spacing:-.015em;font-weight:600;text-wrap:pretty}
+  .grid-projects p{margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.44 0.014 60);flex:1;text-wrap:pretty}
+  .video-frame{position:relative;aspect-ratio:888/492;overflow:hidden;border-radius:3px;background:oklch(0.20 0.03 250);box-shadow:0 1px 2px oklch(0.24 0.012 60 / .12),0 12px 32px oklch(0.24 0.012 60 / .10)}
+  .video-frame video{position:absolute;width:144.14%;height:146.34%;left:-18.92%;top:-27.64%;object-fit:cover}
+  .bullet{font-size:15px;line-height:1.6;color:oklch(0.38 0.014 60);padding-left:18px;position:relative;text-wrap:pretty}
+  .bullet::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+  .placeholder{border:1px dashed oklch(0.84 0.012 75);border-radius:4px;padding:28px 24px;background:repeating-linear-gradient(135deg,transparent,transparent 9px,oklch(0.93 0.01 80) 9px,oklch(0.93 0.01 80) 10px)}
+  .contact-link{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink)}
+  .contact-link:hover{color:var(--terra);text-decoration:none}
+  .contact-link span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:oklch(0.58 0.015 60)}
+  ul{margin:0;padding:0;list-style:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a href="#top" class="mark">JC<span style="color:var(--terra)">.</span></a>
+  <nav>
+    <a href="#sobre" data-i="navAbout">Sobre mí</a>
+    <a href="#proyectos" data-i="navWork">Proyectos</a>
+    <a href="#stack" data-i="navStack">Stack</a>
+    <a href="#experiencia" data-i="navExp">Experiencia</a>
+    <a href="#contacto" data-i="navContact">Contacto</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="langbox">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn-dark" href="assets/CV_Japheth_Canales_Asencio.pdf" download data-i="cv">Descargar CV</a>
+  </div>
+</header>
+
+<section id="top" class="row" style="gap:48px;align-items:flex-end;padding:72px 0 64px">
+  <div style="flex:3 1 340px;min-width:0">
+    <p class="eyebrow" style="margin-bottom:22px;color:var(--teal)" data-i="kicker">Datos y Automatización · Lima, Perú</p>
+    <h1>Japheth<br />Canales</h1>
+    <p style="margin:26px 0 0;font-size:clamp(17px,2vw,21px);line-height:1.5;max-width:34em;color:oklch(0.34 0.014 60);text-wrap:pretty" data-i="heroLead">Convierto datos en información útil y automatizo procesos para que las decisiones se tomen más rápido. Practicante de Datos y Automatización en la PUCP.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:32px">
+      <a class="btn-accent" href="#proyectos" data-i="ctaWork">Ver proyectos</a>
+      <a class="btn-ghost" href="mailto:japheth.canalesa@hotmail.com" data-i="ctaMail">Escríbeme</a>
+    </div>
+  </div>
+  <div style="position:relative;flex:2 1 260px;min-width:0;max-width:360px">
+    <div style="position:absolute;inset:16px -16px -16px 16px;border:1px solid oklch(0.58 0.14 195 / .45);border-radius:4px"></div>
+    <img src="assets/japheth.png" alt="Japheth Canales" style="position:relative;display:block;width:100%;aspect-ratio:3/3.6;object-fit:cover;object-position:50% 22%;border-radius:4px;filter:grayscale(.15) contrast(1.02)" />
+  </div>
+</section>
+
+<section id="sobre" class="row" style="gap:24px 48px;padding:72px 0">
+  <h2 class="eyebrow" style="flex:1 1 160px;max-width:220px" data-i="navAbout">Sobre mí</h2>
+  <div style="flex:6 1 320px;min-width:0">
+    <p style="margin:0 0 20px;font-size:clamp(19px,2.2vw,24px);line-height:1.45;letter-spacing:-.01em;max-width:26em;text-wrap:pretty" data-i="aboutBig">Ingeniero industrial que programa. Me muevo entre el pipeline que extrae la data y el dashboard donde alguien la lee.</p>
+    <p style="margin:0 0 34px;font-size:16px;line-height:1.65;max-width:34em;color:var(--soft);text-wrap:pretty" data-i="aboutBody">Empecé midiendo ejecución presupuestal en el Ministerio de Relaciones Exteriores y hoy construyo flujos automatizados con n8n, Kissflow y Microsoft Fabric en la PUCP. Trabajo sobre todo con Python, SQL y Power BI, y estoy profundizando en machine learning, data pipelines y web scraping.</p>
+    <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;margin:0;padding-top:28px;border-top:1px solid var(--line)">
+      <div><dt class="eyebrow" style="font-size:11px;letter-spacing:.12em;margin-bottom:6px" data-i="factRoleK">Rol actual</dt><dd style="margin:0;font-size:15px;line-height:1.4" data-i="factRoleV">Practicante Profesional de Datos y Automatización, PUCP</dd></div>
+      <div><dt class="eyebrow" style="font-size:11px;letter-spacing:.12em;margin-bottom:6px" data-i="factEduK">Formación</dt><dd style="margin:0;font-size:15px;line-height:1.4" data-i="factEduV">Bachiller en Ingeniería Industrial, UNMSM</dd></div>
+      <div><dt class="eyebrow" style="font-size:11px;letter-spacing:.12em;margin-bottom:6px" data-i="factLocK">Ubicación</dt><dd style="margin:0;font-size:15px;line-height:1.4">Lima, Perú</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="proyectos" style="padding:72px 0">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <h2 class="big" data-i="workTitle">Proyectos</h2>
+    <p style="margin:0;font-size:14px;color:var(--muted);max-width:30em" data-i="workNote">Trabajo real de mis prácticas y repositorios personales. Filtra por tipo.</p>
+  </div>
+
+  <div class="row" style="gap:32px 40px;align-items:flex-start;padding:32px;margin-bottom:40px;background:var(--card);border:1px solid var(--line)">
+    <div style="flex:5 1 400px;min-width:0">
+      <div class="video-frame">
+        <video id="case-video" src="assets/dashboard-hospital.mp4" poster="assets/dashboard-hospital-poster.png" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <p style="margin:12px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:oklch(0.62 0.012 60)" data-i="caseCaption">Reporte en Power BI · 3 cortes de 27 s en bucle · datos públicos 2023</p>
+    </div>
+    <div style="flex:3 1 280px;min-width:0">
+      <p class="eyebrow" style="font-size:11px;letter-spacing:.14em;color:var(--terra);margin-bottom:14px" data-i="caseKicker">Caso destacado</p>
+      <h3 style="margin:0 0 14px;font-size:clamp(21px,2.4vw,27px);line-height:1.2;letter-spacing:-.02em;font-weight:600;text-wrap:pretty" data-i="caseTitle">Citas médicas 2023 — Hospital María Auxiliadora</h3>
+      <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:var(--soft);text-wrap:pretty" data-i="caseDesc">Reporte de Power BI sobre la atención del hospital en 2023: volumen de citas por especialidad, tarifas, tiempos de espera y perfil de los pacientes.</p>
+      <ul style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px">
+        <li class="bullet" style="font-size:14.5px;line-height:1.5;color:oklch(0.34 0.014 60);padding-left:16px" data-i="casePt1">Cardiología concentra 37 mil citas, el triple que ginecología.</li>
+        <li class="bullet" style="font-size:14.5px;line-height:1.5;color:oklch(0.34 0.014 60);padding-left:16px" data-i="casePt2">Tiempo promedio de atención de 20 días y S/ 5.65 millones recaudados.</li>
+        <li class="bullet" style="font-size:14.5px;line-height:1.5;color:oklch(0.34 0.014 60);padding-left:16px" data-i="casePt3">Segmentación cruzada por especialidad, mes, edad y género con tooltips propios.</li>
+      </ul>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Modelado de datos</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="filters" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px"></div>
+  <div class="grid-projects" id="project-grid"></div>
+
+  <div style="margin-top:40px;padding-top:28px;border-top:1px solid var(--line)">
+    <p class="eyebrow" style="font-size:11px;letter-spacing:.14em;margin-bottom:16px" data-i="liveRepos">Repositorios en GitHub</p>
+    <div id="repos" style="display:flex;gap:10px;flex-wrap:wrap"></div>
+  </div>
+</section>
+
+<section id="stack" style="padding:72px 0">
+  <h2 class="big" style="margin-bottom:36px" data-i="stackTitle">Stack técnico</h2>
+  <div id="stack-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:36px 32px"></div>
+</section>
+
+<section id="experiencia" style="padding:72px 0">
+  <h2 class="big" style="margin-bottom:40px" data-i="expTitle">Experiencia</h2>
+  <div id="jobs"></div>
+</section>
+
+<section id="educacion" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;padding:72px 0">
+  <div>
+    <h2 class="eyebrow" style="margin-bottom:24px" data-i="eduTitle">Educación</h2>
+    <h3 style="margin:0 0 4px;font-size:19px;letter-spacing:-.015em;font-weight:600" data-i="degree">Bachiller en Ingeniería Industrial</h3>
+    <p style="margin:0 0 4px;font-size:15px;color:var(--soft)">Universidad Nacional Mayor de San Marcos</p>
+    <p style="margin:0 0 20px;font-family:var(--mono);font-size:12px;color:oklch(0.58 0.015 60)">2020 — 2025</p>
+    <ul id="edu" style="display:flex;flex-direction:column;gap:8px"></ul>
+  </div>
+  <div>
+    <h2 class="eyebrow" style="margin-bottom:24px" data-i="certTitle">Certificaciones</h2>
+    <div class="placeholder">
+      <p style="margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--soft)" data-i="certEmpty">Espacio reservado para tus certificaciones (Power BI, Azure, Google Data Analytics…).</p>
+    </div>
+  </div>
+</section>
+
+<section id="notas" style="padding:72px 0">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:24px">
+    <h2 class="big" data-i="notesTitle">Notas</h2>
+    <p style="margin:0;font-size:14px;color:var(--muted);max-width:28em" data-i="notesNote">Apuntes cortos sobre lo que estoy aprendiendo.</p>
+  </div>
+  <div id="notes" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px"></div>
+</section>
+
+<section id="contacto" style="padding:80px 0 0;border-bottom:0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;align-items:start">
+    <div>
+      <h2 style="margin:0 0 16px;font-size:clamp(32px,4.6vw,52px);letter-spacing:-.035em;line-height:1.05;font-weight:600;text-wrap:pretty" data-i="contactTitle">¿Conversamos sobre datos?</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:var(--soft);max-width:28em;text-wrap:pretty" data-i="contactLead">Abierto a oportunidades como Data Analyst, BI o Data &amp; Automation, en Lima o remoto.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <a class="contact-link" href="mailto:japheth.canalesa@hotmail.com"><span>Email</span>japheth.canalesa@hotmail.com</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/jcanalesas/" target="_blank" rel="noopener"><span>LinkedIn</span>in/jcanalesas</a>
+      <a class="contact-link" href="https://github.com/jmcanales" target="_blank" rel="noopener"><span>GitHub</span>@jmcanales</a>
+      <a class="contact-link" href="tel:+51958761974" style="border-bottom:1px solid var(--line)"><span data-i="phone">Teléfono</span>958 761 974</a>
+    </div>
+  </div>
+  <p style="margin:72px 0 0;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.62 0.012 60)">Japheth Canales — Lima, Perú</p>
+</section>
+
+</div>
+
+<script>
+const COPY = {
+  es: {navAbout:"Sobre mí",navWork:"Proyectos",navStack:"Stack",navExp:"Experiencia",navContact:"Contacto",cv:"Descargar CV",
+    kicker:"Datos y Automatización · Lima, Perú",
+    heroLead:"Convierto datos en información útil y automatizo procesos para que las decisiones se tomen más rápido. Practicante de Datos y Automatización en la PUCP.",
+    ctaWork:"Ver proyectos",ctaMail:"Escríbeme",
+    aboutBig:"Ingeniero industrial que programa. Me muevo entre el pipeline que extrae la data y el dashboard donde alguien la lee.",
+    aboutBody:"Empecé midiendo ejecución presupuestal en el Ministerio de Relaciones Exteriores y hoy construyo flujos automatizados con n8n, Kissflow y Microsoft Fabric en la PUCP. Trabajo sobre todo con Python, SQL y Power BI, y estoy profundizando en machine learning, data pipelines y web scraping.",
+    factRoleK:"Rol actual",factRoleV:"Practicante Profesional de Datos y Automatización, PUCP",
+    factEduK:"Formación",factEduV:"Bachiller en Ingeniería Industrial, UNMSM",factLocK:"Ubicación",
+    workTitle:"Proyectos",workNote:"Trabajo real de mis prácticas y repositorios personales. Filtra por tipo.",
+    caseKicker:"Caso destacado",caseTitle:"Citas médicas 2023 — Hospital María Auxiliadora",
+    caseDesc:"Reporte de Power BI sobre la atención del hospital en 2023: volumen de citas por especialidad, tarifas, tiempos de espera y perfil de los pacientes.",
+    caseCaption:"Reporte en Power BI · 3 cortes de 27 s en bucle · datos públicos 2023",
+    casePt1:"Cardiología concentra 37 mil citas, el triple que ginecología.",
+    casePt2:"Tiempo promedio de atención de 20 días y S/ 5.65 millones recaudados.",
+    casePt3:"Segmentación cruzada por especialidad, mes, edad y género con tooltips propios.",
+    repo:"Ver repositorio",liveRepos:"Repositorios en GitHub",stackTitle:"Stack técnico",expTitle:"Experiencia",
+    eduTitle:"Educación",degree:"Bachiller en Ingeniería Industrial",certTitle:"Certificaciones",
+    certEmpty:"Espacio reservado para tus certificaciones (Power BI, Azure, Google Data Analytics…).",
+    notesTitle:"Notas",notesNote:"Apuntes cortos sobre lo que estoy aprendiendo.",
+    contactTitle:"¿Conversamos sobre datos?",contactLead:"Abierto a oportunidades como Data Analyst, BI o Data & Automation, en Lima o remoto.",
+    phone:"Teléfono",filterAll:"Todos"},
+  en: {navAbout:"About",navWork:"Work",navStack:"Stack",navExp:"Experience",navContact:"Contact",cv:"Download CV",
+    kicker:"Data & Automation · Lima, Peru",
+    heroLead:"I turn data into useful information and automate processes so decisions happen faster. Data & Automation intern at PUCP.",
+    ctaWork:"See work",ctaMail:"Get in touch",
+    aboutBig:"An industrial engineer who codes. I work across the pipeline that pulls the data and the dashboard where someone reads it.",
+    aboutBody:"I started measuring budget execution at Peru's Ministry of Foreign Affairs and now build automated flows with n8n, Kissflow and Microsoft Fabric at PUCP. Mostly Python, SQL and Power BI, while going deeper into machine learning, data pipelines and web scraping.",
+    factRoleK:"Current role",factRoleV:"Data & Automation Intern, PUCP",
+    factEduK:"Education",factEduV:"BSc Industrial Engineering, UNMSM",factLocK:"Based in",
+    workTitle:"Selected work",workNote:"Real work from my internships plus personal repositories. Filter by type.",
+    caseKicker:"Featured case",caseTitle:"Medical appointments 2023 — Hospital María Auxiliadora",
+    caseDesc:"A Power BI report on the hospital's 2023 care activity: appointment volume by specialty, fees, waiting times and patient profile.",
+    caseCaption:"Power BI report · 3 cuts, 27 s loop · public 2023 data",
+    casePt1:"Cardiology accounts for 37k appointments, triple that of gynaecology.",
+    casePt2:"20-day average time to be seen and S/ 5.65 million collected.",
+    casePt3:"Cross-filtering by specialty, month, age and gender with custom tooltips.",
+    repo:"View repository",liveRepos:"Repositories on GitHub",stackTitle:"Tech stack",expTitle:"Experience",
+    eduTitle:"Education",degree:"BSc in Industrial Engineering",certTitle:"Certifications",
+    certEmpty:"Reserved for your certifications (Power BI, Azure, Google Data Analytics…).",
+    notesTitle:"Notes",notesNote:"Short write-ups on what I'm learning.",
+    contactTitle:"Let's talk about data.",contactLead:"Open to Data Analyst, BI and Data & Automation roles, in Lima or remote.",
+    phone:"Phone",filterAll:"All"}
+};
+const CATS={auto:{es:"Automatización",en:"Automation"},ml:{es:"Machine Learning",en:"Machine Learning"},bi:{es:"BI y Dashboards",en:"BI & Dashboards"},scrape:{es:"Web Scraping",en:"Web Scraping"}};
+const PROJECTS=[
+{cat:"auto",year:"2026",tags:["Python","Selenium","ERP Centuria"],es:{t:"Alta de personal automatizada en el ERP",d:"Automaticé el registro de nuevo personal en Centuria con web scraping y automatización web, eliminando la carga manual del proceso."},en:{t:"Automated employee onboarding in the ERP",d:"Automated new-hire registration in Centuria through web scraping and browser automation, removing the manual load of the process."}},
+{cat:"auto",year:"2026",tags:["Python","Requests","Microsoft Fabric","NocoDB"],es:{t:"Pipelines de Fabric hacia Kissflow y NocoDB",d:"Canalizaciones que extraen información de Microsoft Fabric y la cargan en datasets operativos, combinando integraciones vía API y automatización web."},en:{t:"Pipelines from Fabric into Kissflow and NocoDB",d:"Pipelines that extract data from Microsoft Fabric and load it into operational datasets, mixing API integrations with browser automation."}},
+{cat:"auto",year:"2026",tags:["Kissflow","Calendario","Email"],es:{t:"Flujos de eventos corporativos en Kissflow",d:"Formularios de captura conectados a notificaciones por correo, sincronización de calendario y almacenamiento en datasets."},en:{t:"Corporate event flows in Kissflow",d:"Capture forms wired to email notifications, calendar sync and dataset storage."}},
+{cat:"auto",year:"2025",tags:["n8n","API","RH Nube"],es:{t:"Pipeline de marcaciones de personal en n8n",d:"Extracción por web scraping, transformación, carga vía API a RH Nube y alertas por correo, todo orquestado en n8n."},en:{t:"Attendance-tracking pipeline in n8n",d:"Scraped extraction, transformation, API upload to RH Nube and email alerts, all orchestrated in n8n."}},
+{cat:"ml",year:"2025",tags:["Python","scikit-learn","Regresión logística"],es:{t:"Modelo de probabilidad de sindicalización",d:"Regresión logística que predice la probabilidad de sindicalización en empleados nombrados con 72% de accuracy, usando variables derivadas de fechas de nombramiento."},en:{t:"Unionization probability model",d:"Logistic regression predicting unionization probability among tenured employees with 72% accuracy, from features derived from appointment dates."}},
+{cat:"bi",year:"2024",tags:["Power BI","DAX"],es:{t:"Dashboard de ejecución presupuestal",d:"Monitoreo de las fases de certificado, comprometido, devengado y pagado para el seguimiento del presupuesto institucional."},en:{t:"Budget execution dashboard",d:"Monitoring of the certified, committed, accrued and paid phases for institutional budget tracking."}},
+{cat:"auto",year:"2024",tags:["VBA","Excel"],es:{t:"Registro automatizado del Plan de Trabajo Anual",d:"Formularios en VBA para el registro y seguimiento del PTA, reduciendo los tiempos de carga manual de información."},en:{t:"Automated Annual Work Plan tracking",d:"VBA forms for logging and following up the annual work plan, cutting manual data-entry time."}},
+{cat:"bi",year:"2025",tags:["Jupyter","Pandas"],link:"https://github.com/jmcanales/superstore_sales",es:{t:"Superstore Sales",d:"Análisis exploratorio de ventas sobre el dataset Superstore: limpieza, métricas por categoría y región, y visualización de resultados."},en:{t:"Superstore Sales",d:"Exploratory sales analysis on the Superstore dataset: cleaning, category and region metrics, and visualization of results."}},
+{cat:"scrape",year:"2025",tags:["Python","BeautifulSoup","Selenium"],link:"https://github.com/jmcanales/curso_web_scraping",es:{t:"Curso de Web Scraping",d:"Notebooks de práctica sobre extracción de datos web: peticiones, parseo de HTML y navegación automatizada."},en:{t:"Web Scraping course",d:"Practice notebooks on web data extraction: requests, HTML parsing and automated navigation."}},
+{cat:"bi",year:"2023",tags:["Datos abiertos","Análisis"],link:"https://github.com/jmcanales/hospital_maria_auxiliadora_2023",es:{t:"Hospital María Auxiliadora 2023",d:"Exploración de datos de atención hospitalaria para identificar patrones de demanda y capacidad."},en:{t:"Hospital María Auxiliadora 2023",d:"Exploration of hospital care data to identify demand and capacity patterns."}}];
+const STACK=[
+{es:"Lenguajes",en:"Languages",items:["Python","SQL","R","JavaScript","C++"]},
+{es:"Datos y BI",en:"Data & BI",items:["Power BI","Tableau","Microsoft Fabric","Excel Avanzado","VBA"]},
+{es:"Automatización",en:"Automation",items:["n8n","Kissflow","Selenium","Playwright","Requests / API"]},
+{es:"Librerías",en:"Libraries",items:["Pandas","NumPy","scikit-learn","Matplotlib","Seaborn","Plotly","Statsmodels"]},
+{es:"Bases de datos",en:"Databases",items:["PostgreSQL","SQL Server","MySQL","MongoDB"]},
+{es:"Herramientas",en:"Tools",items:["Git y GitHub","Jupyter","VS Code","Notion"]}];
+const JOBS=[
+{org:"Pontificia Universidad Católica del Perú",es:{dates:"Feb. 2026 — Presente",role:"Practicante Profesional de Datos y Automatización",b:["Automaticé el proceso de alta de personal en el ERP Centuria mediante web scraping y automatización web con Python y Selenium, reduciendo el trabajo manual.","Implementé canalizaciones de datos para extraer información de Microsoft Fabric y cargarla en datasets de Kissflow y NocoDB, combinando integraciones vía API y automatización web.","Desarrollé flujos automatizados en Kissflow para eventos corporativos, integrando captura por formularios con notificaciones por correo, sincronización de calendario y almacenamiento en datasets."]},en:{dates:"Feb 2026 — Present",role:"Data & Automation Intern",b:["Automated employee onboarding in the Centuria ERP through web scraping and browser automation with Python and Selenium, cutting manual work.","Built data pipelines to extract information from Microsoft Fabric and load it into Kissflow and NocoDB datasets, combining API integrations with browser automation.","Developed automated Kissflow flows for corporate events, wiring form capture to email notifications, calendar sync and dataset storage."]}},
+{org:"Pontificia Universidad Católica del Perú",es:{dates:"Ago. 2025 — Ene. 2026",role:"Practicante Preprofesional de Gestión de Datos",b:["Diseñé un pipeline en n8n para automatizar el registro de marcaciones de personal: extracción por web scraping, transformación, carga vía API a RH Nube y alertas por correo.","Desarrollé un modelo de machine learning con regresión logística para predecir la probabilidad de sindicalización en empleados nombrados, con 72% de accuracy."]},en:{dates:"Aug 2025 — Jan 2026",role:"Data Management Intern",b:["Designed an n8n pipeline to automate attendance logging: scraped extraction, transformation, API upload to RH Nube and email alerts.","Built a logistic-regression model to predict unionization probability among tenured employees, reaching 72% accuracy."]}},
+{org:"Ministerio de Relaciones Exteriores",es:{dates:"Mar. 2024 — Dic. 2024",role:"Practicante Preprofesional de Planeamiento",b:["Desarrollé un dashboard en Power BI para monitorear la ejecución presupuestal en sus fases de certificado, comprometido, devengado y pagado.","Automaticé el registro y seguimiento del Plan de Trabajo Anual mediante formularios en VBA, reduciendo tiempos de carga manual.","Calculé indicadores de gestión institucional de todas las áreas, brindando información clave para evaluar el cumplimiento de metas operativas y presupuestales."]},en:{dates:"Mar 2024 — Dec 2024",role:"Planning Intern",b:["Built a Power BI dashboard to monitor budget execution across its certified, committed, accrued and paid phases.","Automated logging and follow-up of the Annual Work Plan with VBA forms, reducing manual data-entry time.","Calculated institutional management indicators for every area, informing the evaluation of operational and budget targets."]}}];
+const EDU={es:["Cursos relevantes: Estadística, Probabilidad, Investigación Operativa, Base de Datos, Simulación de Sistemas.","Tercio Superior 2024.","Director de Marketing, IEEE Computer Society UNMSM (2023–2024).","2.º puesto en emprendimiento grupal CODEII."],
+en:["Relevant coursework: Statistics, Probability, Operations Research, Databases, Systems Simulation.","Top third of class, 2024.","Marketing Director, IEEE Computer Society UNMSM (2023–2024).","2nd place, CODEII group entrepreneurship contest."]};
+const NOTES={es:[{t:"Cómo estructuro un pipeline en n8n que no se rompe",s:"Borrador"},{t:"Regresión logística: qué aprendí al llegar a 72% de accuracy",s:"Borrador"},{t:"Scraping responsable para procesos internos",s:"Idea"}],
+en:[{t:"Structuring an n8n pipeline that doesn't break",s:"Draft"},{t:"Logistic regression: lessons from hitting 72% accuracy",s:"Draft"},{t:"Responsible scraping for internal processes",s:"Idea"}]};
+
+let lang = (navigator.language || "es").toLowerCase().startsWith("en") ? "en" : "es";
+let filter = "all";
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render() {
+  const t = COPY[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i]").forEach(el => { const v = t[el.dataset.i]; if (v) el.textContent = v; });
+  document.querySelectorAll(".langbox button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+
+  $("#filters").innerHTML = ["all"].concat(Object.keys(CATS)).map(k =>
+    `<button type="button" class="chip" data-f="${k}" aria-pressed="${k === filter}">${esc(k === "all" ? t.filterAll : CATS[k][lang])}</button>`).join("");
+
+  $("#project-grid").innerHTML = PROJECTS.filter(p => filter === "all" || p.cat === filter).map(p => `
+    <article>
+      <div class="p-meta"><span class="cat">${esc(CATS[p.cat][lang])}</span><span class="yr">${p.year}</span></div>
+      <h3>${esc(p[lang].t)}</h3>
+      <p>${esc(p[lang].d)}</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">${p.tags.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>
+      ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" style="font-size:13px;font-family:var(--mono);margin-top:6px">${esc(t.repo)} →</a>` : ""}
+    </article>`).join("");
+
+  $("#stack-grid").innerHTML = STACK.map(g => `
+    <div><h3 class="eyebrow" style="font-size:11px;letter-spacing:.14em;color:var(--terra);margin-bottom:14px">${esc(g[lang])}</h3>
+    <ul style="display:flex;flex-direction:column;gap:7px">${g.items.map(i => `<li style="font-size:15px;color:oklch(0.34 0.014 60)">${esc(i)}</li>`).join("")}</ul></div>`).join("");
+
+  $("#jobs").innerHTML = JOBS.map(j => `
+    <div class="row" style="gap:16px 40px;padding:32px 0;border-top:1px solid var(--line)">
+      <div style="flex:1 1 150px;max-width:190px"><p style="margin:0;font-family:var(--mono);font-size:12px;color:var(--muted)">${esc(j[lang].dates)}</p></div>
+      <div style="flex:6 1 320px;min-width:0">
+        <h3 style="margin:0 0 4px;font-size:19px;letter-spacing:-.015em;font-weight:600">${esc(j[lang].role)}</h3>
+        <p style="margin:0 0 16px;font-size:14px;color:var(--muted)">${esc(j.org)}</p>
+        <ul style="display:flex;flex-direction:column;gap:10px">${j[lang].b.map(b => `<li class="bullet">${esc(b)}</li>`).join("")}</ul>
+      </div>
+    </div>`).join("");
+
+  $("#edu").innerHTML = EDU[lang].map(e => `<li style="font-size:14.5px;line-height:1.55;color:oklch(0.44 0.014 60)">${esc(e)}</li>`).join("");
+
+  $("#notes").innerHTML = NOTES[lang].map(n => `
+    <div class="placeholder" style="padding:24px 22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:none">
+      <p style="margin:0;font-size:16px;line-height:1.4;letter-spacing:-.01em;color:oklch(0.34 0.014 60);text-wrap:pretty">${esc(n.t)}</p>
+      <p style="margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.62 0.012 60)">${esc(n.s)}</p>
+    </div>`).join("");
+}
+
+document.addEventListener("click", e => {
+  const l = e.target.closest(".langbox button");
+  if (l) { lang = l.dataset.lang; render(); return; }
+  const f = e.target.closest(".chip");
+  if (f) { filter = f.dataset.f; render(); }
+});
+
+function fallbackRepos() {
+  return ["webpage","git_helper","curso_web_scraping","data_science_python","superstore_sales","hospital_maria_auxiliadora_2023"]
+    .map(n => ({ name: n, language: "", html_url: "https://github.com/jmcanales/" + n }));
+}
+function paintRepos(list) {
+  $("#repos").innerHTML = list.map(r => `
+    <a href="${r.html_url}" target="_blank" rel="noopener" style="display:flex;align-items:baseline;gap:10px;padding:9px 14px;border:1px solid var(--line);border-radius:3px;background:var(--card);font-family:var(--mono);font-size:13px;color:oklch(0.30 0.012 60)">
+      ${esc(r.name)}<span style="font-size:11px;color:oklch(0.62 0.012 60)">${esc(r.language || "")}</span></a>`).join("");
+}
+
+// Recorte del video: 3 tramos con contenido, se saltan los tiempos muertos.
+const SEGMENTS = [[22, 31], [42.5, 52], [57, 65]];
+let seg = 0;
+const vid = $("#case-video");
+if (vid) {
+  vid.muted = true; vid.loop = false;
+  const start = () => { vid.currentTime = SEGMENTS[0][0]; vid.play().catch(() => {}); };
+  vid.readyState >= 1 ? start() : vid.addEventListener("loadedmetadata", start, { once: true });
+  vid.addEventListener("timeupdate", () => {
+    const c = SEGMENTS[seg];
+    if (vid.currentTime >= c[1] || vid.currentTime < c[0] - 0.4) {
+      seg = (seg + 1) % SEGMENTS.length;
+      vid.currentTime = SEGMENTS[seg][0];
+      vid.play().catch(() => {});
+    }
+  });
+}
+
+render();
+paintRepos(fallbackRepos());
+fetch("https://api.github.com/users/jmcanales/repos?sort=updated&per_page=12")
+  .then(r => r.ok ? r.json() : null)
+  .then(list => { if (Array.isArray(list) && list.length) paintRepos(list); })
+  .catch(() => {});
+</script>
+</body>
+</html>
