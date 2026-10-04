@@ -7,7 +7,7 @@
 <meta name="description" content="Portafolio de Japheth Canales, practicante de Datos y Automatización en Lima, Perú. Power BI, Python, SQL, n8n." />
 <meta property="og:title" content="Japheth Canales — Datos y Automatización" />
 <meta property="og:description" content="Convierto datos en información útil y automatizo procesos." />
-<meta property="og:image" content="assets/japheth.png" />
+<meta property="og:image" content="https://jmcanales.github.io/assets/japheth.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -15,7 +15,7 @@
   :root{
     --bg:oklch(0.975 0.008 85); --ink:oklch(0.24 0.012 60); --muted:oklch(0.52 0.015 60);
     --soft:oklch(0.42 0.014 60); --line:oklch(0.89 0.01 80); --card:oklch(0.995 0.004 85);
-    --terra:oklch(0.58 0.14 40); --teal:oklch(0.58 0.14 195);
+    --terra:oklch(0.50 0.13 40); --teal:oklch(0.48 0.12 195);
     --mono:"IBM Plex Mono",ui-monospace,monospace;
   }
   *{box-sizing:border-box}
@@ -34,8 +34,8 @@
   .langbox button[aria-pressed="true"]{background:var(--ink);color:oklch(0.98 0.006 85)}
   .btn-dark{padding:8px 14px;border-radius:999px;background:var(--ink);color:oklch(0.98 0.006 85);font-size:13px;font-weight:500}
   .btn-dark:hover{background:oklch(0.34 0.03 45);color:oklch(0.98 0.006 85);text-decoration:none}
-  .btn-accent{padding:12px 22px;border-radius:999px;background:var(--terra);color:oklch(0.99 0.005 85);font-size:14px;font-weight:500}
-  .btn-accent:hover{background:oklch(0.50 0.13 40);color:oklch(0.99 0.005 85);text-decoration:none}
+  .btn-accent{padding:12px 22px;border-radius:999px;background:oklch(0.50 0.13 40);color:oklch(0.99 0.005 85);font-size:14px;font-weight:500}
+  .btn-accent:hover{background:oklch(0.42 0.12 40);color:oklch(0.99 0.005 85);text-decoration:none}
   .btn-ghost{padding:12px 22px;border-radius:999px;border:1px solid oklch(0.82 0.012 70);color:var(--ink);font-size:14px;font-weight:500}
   .btn-ghost:hover{border-color:var(--ink);color:var(--ink);text-decoration:none}
   section{border-bottom:1px solid var(--line)}
@@ -50,7 +50,7 @@
   .grid-projects article{background:var(--card);padding:28px 26px 26px;display:flex;flex-direction:column;gap:12px}
   .grid-projects article:hover{background:#fff}
   .p-meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-  .p-meta .cat{color:var(--teal)} .p-meta .yr{color:oklch(0.62 0.012 60)}
+  .p-meta .cat{color:var(--teal)} .p-meta .yr{color:oklch(0.50 0.014 60)}
   .grid-projects h3{margin:0;font-size:19px;line-height:1.3;letter-spacing:-.015em;font-weight:600;text-wrap:pretty}
   .grid-projects p{margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.44 0.014 60);flex:1;text-wrap:pretty}
   .video-frame{position:relative;aspect-ratio:888/492;overflow:hidden;border-radius:3px;background:oklch(0.20 0.03 250);box-shadow:0 1px 2px oklch(0.24 0.012 60 / .12),0 12px 32px oklch(0.24 0.012 60 / .10)}
@@ -62,6 +62,35 @@
   .contact-link:hover{color:var(--terra);text-decoration:none}
   .contact-link span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:oklch(0.58 0.015 60)}
   ul{margin:0;padding:0;list-style:none}
+  .viz-card:hover{border-color:var(--terra)!important;text-decoration:none}
+  .viz-card:hover img{transform:scale(1.04)}
+  @media (max-width:640px){
+    .wrap{padding:0 18px 64px}
+    header{gap:10px 14px;padding:12px 0}
+    header nav{order:3;flex-basis:100%;gap:14px;font-size:13px;overflow-x:auto;white-space:nowrap;padding-bottom:2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    header nav::-webkit-scrollbar{display:none}
+    .mark{flex:1}
+    #top{padding:40px 0 48px;gap:32px}
+    #top>div:last-child{order:-1;max-width:190px}
+    #top>div:last-child>div{inset:10px -10px -10px 10px}
+    h1{font-size:44px}
+    .btn-accent,.btn-ghost{padding:14px 22px;min-height:48px;display:flex;align-items:center}
+    .btn-dark{padding:11px 16px;min-height:44px;display:flex;align-items:center}
+    .langbox button{min-height:44px;padding:0 14px}
+    section{padding-top:48px!important;padding-bottom:48px!important}
+    #sobre h2{flex-basis:100%;max-width:none}
+    #proyectos>.row{padding:20px;gap:24px}
+    .chip{min-height:44px;display:inline-flex;align-items:center}
+    #filters{gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    #filters::-webkit-scrollbar{display:none}
+    .grid-projects{grid-template-columns:1fr}
+    .grid-projects article{padding:22px 20px}
+    #jobs .row{padding:24px 0;gap:8px 0}
+    #jobs .row>div:first-child{flex-basis:100%;max-width:none}
+    #educacion,#notas>div:last-child,#contacto>div{gap:32px}
+    .contact-link{flex-direction:column;gap:4px;padding:14px 0;min-height:56px;justify-content:center;word-break:break-word}
+    #contacto>p{margin-top:48px}
+  }
 </style>
 </head>
 <body>
@@ -72,6 +101,7 @@
   <nav>
     <a href="#sobre" data-i="navAbout">Sobre mí</a>
     <a href="#proyectos" data-i="navWork">Proyectos</a>
+    <a href="#tableau">Tableau</a>
     <a href="#stack" data-i="navStack">Stack</a>
     <a href="#experiencia" data-i="navExp">Experiencia</a>
     <a href="#contacto" data-i="navContact">Contacto</a>
@@ -97,7 +127,7 @@
   </div>
   <div style="position:relative;flex:2 1 260px;min-width:0;max-width:360px">
     <div style="position:absolute;inset:16px -16px -16px 16px;border:1px solid oklch(0.58 0.14 195 / .45);border-radius:4px"></div>
-    <img src="assets/japheth.png" alt="Japheth Canales" style="position:relative;display:block;width:100%;aspect-ratio:3/3.6;object-fit:cover;object-position:50% 22%;border-radius:4px;filter:grayscale(.15) contrast(1.02)" />
+    <img src="assets/japheth.jpg" alt="Japheth Canales" style="position:relative;display:block;width:100%;aspect-ratio:3/3.6;object-fit:cover;object-position:50% 22%;border-radius:4px;filter:grayscale(.15) contrast(1.02)" />
   </div>
 </section>
 
@@ -125,10 +155,10 @@
       <div class="video-frame">
         <video id="case-video" src="assets/dashboard-hospital.mp4" poster="assets/dashboard-hospital-poster.png" autoplay muted loop playsinline preload="metadata"></video>
       </div>
-      <p style="margin:12px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:oklch(0.62 0.012 60)" data-i="caseCaption">Reporte en Power BI · 3 cortes de 27 s en bucle · datos públicos 2023</p>
+      <p style="margin:12px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:oklch(0.50 0.014 60)" data-i="caseCaption">Reporte en Power BI · 3 cortes de 27 s en bucle · datos públicos 2023</p>
     </div>
     <div style="flex:3 1 280px;min-width:0">
-      <p class="eyebrow" style="font-size:11px;letter-spacing:.14em;color:var(--terra);margin-bottom:14px" data-i="caseKicker">Caso destacado</p>
+      <p class="eyebrow" style="font-size:11px;letter-spacing:.14em;color:var(--terra);margin-bottom:14px" data-i="caseKicker">Mi primer proyecto</p>
       <h3 style="margin:0 0 14px;font-size:clamp(21px,2.4vw,27px);line-height:1.2;letter-spacing:-.02em;font-weight:600;text-wrap:pretty" data-i="caseTitle">Citas médicas 2023 — Hospital María Auxiliadora</h3>
       <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:var(--soft);text-wrap:pretty" data-i="caseDesc">Reporte de Power BI sobre la atención del hospital en 2023: volumen de citas por especialidad, tarifas, tiempos de espera y perfil de los pacientes.</p>
       <ul style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px">
@@ -149,6 +179,15 @@
     <p class="eyebrow" style="font-size:11px;letter-spacing:.14em;margin-bottom:16px" data-i="liveRepos">Repositorios en GitHub</p>
     <div id="repos" style="display:flex;gap:10px;flex-wrap:wrap"></div>
   </div>
+</section>
+
+<section id="tableau" style="padding:72px 0">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+    <h2 class="big" data-i="tabTitle">Dashboards en Tableau</h2>
+    <a href="https://public.tableau.com/app/profile/japheth.canales/vizzes" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:13px"><span data-i="tabProfile">Ver perfil en Tableau Public</span> →</a>
+  </div>
+  <p style="margin:0 0 28px;font-size:15px;line-height:1.6;color:var(--soft);max-width:38em;text-wrap:pretty" data-i="tabLead">Visualizaciones interactivas publicadas en Tableau Public. Haz clic en una para abrirla y explorarla.</p>
+  <div id="vizzes" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:20px"></div>
 </section>
 
 <section id="stack" style="padding:72px 0">
@@ -198,7 +237,7 @@
       <a class="contact-link" href="tel:+51958761974" style="border-bottom:1px solid var(--line)"><span data-i="phone">Teléfono</span>958 761 974</a>
     </div>
   </div>
-  <p style="margin:72px 0 0;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.62 0.012 60)">Japheth Canales — Lima, Perú</p>
+  <p style="margin:72px 0 0;padding-top:20px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.50 0.014 60)">Japheth Canales — Lima, Perú</p>
 </section>
 
 </div>
@@ -214,7 +253,7 @@ const COPY = {
     factRoleK:"Rol actual",factRoleV:"Practicante Profesional de Datos y Automatización, PUCP",
     factEduK:"Formación",factEduV:"Bachiller en Ingeniería Industrial, UNMSM",factLocK:"Ubicación",
     workTitle:"Proyectos",workNote:"Trabajo real de mis prácticas y repositorios personales. Filtra por tipo.",
-    caseKicker:"Caso destacado",caseTitle:"Citas médicas 2023 — Hospital María Auxiliadora",
+    caseKicker:"Mi primer proyecto",tabTitle:"Dashboards en Tableau",tabProfile:"Ver perfil en Tableau Public",tabLead:"Visualizaciones interactivas publicadas en Tableau Public. Haz clic en una para abrirla y explorarla.",tabSlot:"Aquí va un dashboard de Tableau Public",tabOpen:"Abrir dashboard",tabEmptyTitle:"Dashboard de Tableau",tabEmptyDesc:"Pendiente: enlace del dashboard.",caseTitle:"Citas médicas 2023 — Hospital María Auxiliadora",
     caseDesc:"Reporte de Power BI sobre la atención del hospital en 2023: volumen de citas por especialidad, tarifas, tiempos de espera y perfil de los pacientes.",
     caseCaption:"Reporte en Power BI · 3 cortes de 27 s en bucle · datos públicos 2023",
     casePt1:"Cardiología concentra 37 mil citas, el triple que ginecología.",
@@ -235,7 +274,7 @@ const COPY = {
     factRoleK:"Current role",factRoleV:"Data & Automation Intern, PUCP",
     factEduK:"Education",factEduV:"BSc Industrial Engineering, UNMSM",factLocK:"Based in",
     workTitle:"Selected work",workNote:"Real work from my internships plus personal repositories. Filter by type.",
-    caseKicker:"Featured case",caseTitle:"Medical appointments 2023 — Hospital María Auxiliadora",
+    caseKicker:"My first project",tabTitle:"Tableau dashboards",tabProfile:"View Tableau Public profile",tabLead:"Interactive visualizations published on Tableau Public. Click one to open and explore it.",tabSlot:"A Tableau Public dashboard goes here",tabOpen:"Open dashboard",tabEmptyTitle:"Tableau dashboard",tabEmptyDesc:"Pending: dashboard link.",caseTitle:"Medical appointments 2023 — Hospital María Auxiliadora",
     caseDesc:"A Power BI report on the hospital's 2023 care activity: appointment volume by specialty, fees, waiting times and patient profile.",
     caseCaption:"Power BI report · 3 cuts, 27 s loop · public 2023 data",
     casePt1:"Cardiology accounts for 37k appointments, triple that of gynaecology.",
@@ -260,6 +299,16 @@ const PROJECTS=[
 {cat:"bi",year:"2025",tags:["Jupyter","Pandas"],link:"https://github.com/jmcanales/superstore_sales",es:{t:"Superstore Sales",d:"Análisis exploratorio de ventas sobre el dataset Superstore: limpieza, métricas por categoría y región, y visualización de resultados."},en:{t:"Superstore Sales",d:"Exploratory sales analysis on the Superstore dataset: cleaning, category and region metrics, and visualization of results."}},
 {cat:"scrape",year:"2025",tags:["Python","BeautifulSoup","Selenium"],link:"https://github.com/jmcanales/curso_web_scraping",es:{t:"Curso de Web Scraping",d:"Notebooks de práctica sobre extracción de datos web: peticiones, parseo de HTML y navegación automatizada."},en:{t:"Web Scraping course",d:"Practice notebooks on web data extraction: requests, HTML parsing and automated navigation."}},
 {cat:"bi",year:"2023",tags:["Datos abiertos","Análisis"],link:"https://github.com/jmcanales/hospital_maria_auxiliadora_2023",es:{t:"Hospital María Auxiliadora 2023",d:"Exploración de datos de atención hospitalaria para identificar patrones de demanda y capacidad."},en:{t:"Hospital María Auxiliadora 2023",d:"Exploration of hospital care data to identify demand and capacity patterns."}}];
+// Pega aquí los enlaces de Tableau Public, p.ej.:
+// {url:"https://public.tableau.com/app/profile/japheth.canales/viz/Libro/Hoja", es:{t:"Título",d:"Descripción"}, en:{t:"Title",d:"Description"}}
+const VIZZES=[
+{url:"https://public.tableau.com/app/profile/japheth.canales/viz/FootballNationalTeams1872-2026/Laficha",es:{t:"Selecciones de fútbol 1872–2026",d:"Ficha por selección con el historial de partidos internacionales desde 1872: resultados, rivales y torneos."},en:{t:"Football national teams 1872–2026",d:"A profile for each national team built on international match history since 1872: results, opponents and tournaments."}},
+{url:"https://public.tableau.com/app/profile/japheth.canales/viz/JuegosOlimpicos1896-2022/Medallero",es:{t:"Juegos Olímpicos 1896–2022",d:"Medallero histórico de los Juegos Olímpicos por país, edición y deporte."},en:{t:"Olympic Games 1896–2022",d:"All-time Olympic medal table by country, edition and sport."}},
+{url:"https://public.tableau.com/app/profile/japheth.canales/viz/Pokedexbeta/Pokdex",es:{t:"Pokédex",d:"Exploración de los Pokémon por tipo, generación y estadísticas base."},en:{t:"Pokédex",d:"Pokémon explored by type, generation and base stats."}},
+{url:"https://public.tableau.com/app/profile/japheth.canales/viz/AnimeDashboard_17898840189310/AnimeEluniversoendatos",es:{t:"Anime: el universo en datos",d:"Panorama del anime por género, estudio, puntuación y popularidad."},en:{t:"Anime: the universe in data",d:"An overview of anime by genre, studio, score and popularity."}}
+];
+const vizEmbed=u=>{const m=String(u).match(/viz\/([^/?#]+)\/([^/?#]+)/);return m?"https://public.tableau.com/views/"+m[1]+"/"+m[2]+"?:embed=y&:showVizHome=no&:toolbar=bottom":null;};
+const vizThumb=u=>{const m=String(u).match(/viz\/([^/?#]+)\/([^/?#]+)/);return m?"https://public.tableau.com/static/images/"+m[1].slice(0,2)+"/"+m[1]+"/"+m[2]+"/1.png":null;};
 const STACK=[
 {es:"Lenguajes",en:"Languages",items:["Python","SQL","R","JavaScript","C++"]},
 {es:"Datos y BI",en:"Data & BI",items:["Power BI","Tableau","Microsoft Fabric","Excel Avanzado","VBA"]},
@@ -313,12 +362,27 @@ function render() {
       </div>
     </div>`).join("");
 
+  const vz = VIZZES.length ? VIZZES.map(v => ({t:v[lang].t, d:v[lang].d, e:vizThumb(v.url), u:v.url})) : [{t:t.tabEmptyTitle,d:t.tabEmptyDesc,e:null},{t:t.tabEmptyTitle,d:t.tabEmptyDesc,e:null}];
+  $("#vizzes").innerHTML = vz.map(v => `
+    <a class="viz-card" href="${v.u || 'https://public.tableau.com/app/profile/japheth.canales/vizzes'}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);color:inherit;text-decoration:none">
+      <div style="position:relative;aspect-ratio:4/3;background:oklch(0.95 0.008 80);border-bottom:1px solid var(--line);overflow:hidden">
+        ${v.e ? `<img src="${v.e}" alt="${esc(v.t)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s ease">`
+          : `<div class="placeholder" style="position:absolute;inset:0;border:0;border-radius:0;display:flex;align-items:center;justify-content:center"><p style="margin:0;font-family:var(--mono);font-size:12px;text-align:center;color:var(--soft)">${esc(t.tabSlot)}</p></div>`}
+      </div>
+      <div style="padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)">Tableau</span>
+        <h3 style="margin:0;font-size:18px;line-height:1.3;letter-spacing:-.015em;font-weight:600">${esc(v.t)}</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.44 0.014 60)">${esc(v.d)}</p>
+        <span style="font-family:var(--mono);font-size:12.5px;color:var(--terra);margin-top:4px">${esc(t.tabOpen)} →</span>
+      </div>
+    </a>`).join("");
+
   $("#edu").innerHTML = EDU[lang].map(e => `<li style="font-size:14.5px;line-height:1.55;color:oklch(0.44 0.014 60)">${esc(e)}</li>`).join("");
 
   $("#notes").innerHTML = NOTES[lang].map(n => `
     <div class="placeholder" style="padding:24px 22px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:none">
       <p style="margin:0;font-size:16px;line-height:1.4;letter-spacing:-.01em;color:oklch(0.34 0.014 60);text-wrap:pretty">${esc(n.t)}</p>
-      <p style="margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.62 0.012 60)">${esc(n.s)}</p>
+      <p style="margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.50 0.014 60)">${esc(n.s)}</p>
     </div>`).join("");
 }
 
@@ -336,7 +400,7 @@ function fallbackRepos() {
 function paintRepos(list) {
   $("#repos").innerHTML = list.map(r => `
     <a href="${r.html_url}" target="_blank" rel="noopener" style="display:flex;align-items:baseline;gap:10px;padding:9px 14px;border:1px solid var(--line);border-radius:3px;background:var(--card);font-family:var(--mono);font-size:13px;color:oklch(0.30 0.012 60)">
-      ${esc(r.name)}<span style="font-size:11px;color:oklch(0.62 0.012 60)">${esc(r.language || "")}</span></a>`).join("");
+      ${esc(r.name)}<span style="font-size:11px;color:oklch(0.50 0.014 60)">${esc(r.language || "")}</span></a>`).join("");
 }
 
 // Recorte del video: 3 tramos con contenido, se saltan los tiempos muertos.

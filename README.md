@@ -6,7 +6,7 @@ Sitio estático de portafolio. Sin dependencias ni build: es un `index.html` con
 
 ```
 index.html                         página completa (ES / EN)
-assets/japheth.png                 foto
+assets/japheth.jpg                 foto
 assets/dashboard-hospital.mp4      grabación del reporte Power BI
 assets/dashboard-hospital-poster.png
 assets/CV_Japheth_Canales_Asencio.pdf
@@ -27,6 +27,7 @@ Todo el texto vive en el objeto `COPY` (español e inglés) y los datos en `PROJ
 - **Idioma**: se detecta por el navegador y se cambia con el botón ES / EN.
 - **Proyectos**: cada entrada lleva `cat` (`auto`, `ml`, `bi`, `scrape`), `year`, `tags` y `link` opcional.
 - **Repositorios**: se leen en vivo de la API pública de GitHub; si falla, se muestra una lista fija.
+- **Tableau**: agrega objetos a `VIZZES` con la URL pública del dashboard (`.../viz/<Libro>/<Hoja>`); se muestran como miniatura que abre el dashboard en Tableau Public.
 - **Video**: la constante `SEGMENTS` define los tramos que se reproducen en bucle, en segundos. El recorte de la interfaz de Power BI se hace por CSS en `.video-frame video`.
 
 ## Pendiente
